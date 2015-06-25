@@ -3,9 +3,8 @@
 #' Predict class for the test set with the fitted projection pursuit 
 #' classification tree and calculate prediction error.
 #' @title predict PPtree
-#' @usage PP.classify(Tree.result,test.data,Rule,true.class=NULL,...)  
-#' @param Tree.result PPtreeclass object 
-#' @param test.data  the test dataset
+#' @param object a fitted object of class inheriting from "PP.Tree.class" 
+#' @param newdata  the test dataset
 #' @param Rule split rule 1: mean of two group means 
 #'                        2: weighted mean of two group means 
 #'                           - weight with group size
@@ -19,11 +18,9 @@
 #'                        7: weighted mean of two group median 
 #'                           - weight with group IQR
 #'                        8: weighted mean of two group median 
-#'                           - weight with group IQR and size                                          
-#' @param true.class true class of test dataset if available
+#'                           - weight with group IQR and size                                         
 #' @param ... arguments to be passed to methods
-#' @return predict.class predicted class
-#' @return predict.error number of the prediction errors
+#' @aliases predict
 #' @references Lee, YD, Cook, D., Park JW, and Lee, EK(2013) 
 #' PPtree: Projection pursuit classification tree, 
 #' Electronic Journal of Statistics, 7:1369-1386.
@@ -37,22 +34,12 @@
 #' train <- sample(tot,n.train)
 #' test <- tot[-train]
 #' Tree.result <- PP.Tree.class(iris[train,5],iris[train,1:4],"LDA")
-#' PP.classify(Tree.result,iris[test,1:4],1,iris[test,5])
-PP.classify<-function(Tree.result,test.data,Rule,true.class=NULL,...) {
-   test.data<-as.matrix(test.data)
-   if(!is.null(true.class)){  
-      true.class<-as.matrix(true.class); 
-      if(nrow(true.class)==1) 
-         true.class<-t(true.class)
-      if(!is.numeric(true.class)) {
-         class.name<-names(table(true.class))
-         temp<-rep(0,nrow(true.class))
-         for(i in 1:length(class.name))
-            temp<-temp+(true.class==class.name[i])*i
-         true.class<-temp
-      }
-   }   
-
+#' predict(Tree.result)
+predict.PPtreeclass<-function(object,newdata=NULL,Rule=1,...) {
+   Tree.result<-object
+   if(is.null(newdata))
+      newdata<-Tree.result$origdata
+   test.data<-as.matrix(newdata)
    PP.Classification<-function(Tree.Struct,test.class.index,IOindex,
                                test.class,id,rep){
       if(Tree.Struct[id,4]==0){
@@ -118,13 +105,8 @@ PP.classify<-function(Tree.result,test.data,Rule,true.class=NULL,...) {
    rep<-1
    temp<-PP.Classification(Tree.result$Tree.Struct,temp$test.class.index,
                            IOindex,test.class,1,1)
-   if(!is.null(true.class)){
-      predict.error<-sum(true.class!=temp$test.class)
-   } else {
-      predict.error<-NA
-   }  
    class.name<-names(table(Tree.result$origclass))
-   predict.class<-class.name[temp$test.class]
-   list(predict.error=predict.error, predict.class=predict.class)
+   predict.class<-factor(class.name[temp$test.class])
+   return(predict.class)
 }
 

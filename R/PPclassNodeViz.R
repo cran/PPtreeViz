@@ -1,6 +1,10 @@
 #' Visualization tools to explore each node of PPtree
 #' 
-#' Explore PPtree with different Rules in each node.
+#' For the inner node, four plots are provided - the bar chart style plot with
+#' projection pursuit coefficients of each variable, the histogram of the
+#' projected data, the bar chart style plots with means of each variables for 
+#' the left and the right group, and the image plot of correlations. 
+#' @title PPtree node visualization
 #' @usage PPclassNode.Viz(PPclassOBJ,node.id,Rule,legend,std,image,diff.prop)
 #' @param PPclassOBJ PPregclass object
 #' @param node.id node ID
@@ -8,7 +12,8 @@
 #' @param legend flag to represent legend in the plot. Default value is TRUE
 #' @param std flag to standardize data before drawing plot
 #' @param image flag to draw image plot of correlation matrix
-#' @param diff.prop percentage of significant difference
+#' @param diff.prop percentage of number of variables with significant 
+#'                  differences and shown in red in the bar chart style means
 #' @references Lee, YD, Cook, D., Park JW, and Lee, EK(2013) 
 #' PPtree: Projection pursuit classification tree, 
 #' Electronic Journal of Statistics, 7:1369-1386.
@@ -101,7 +106,7 @@ PPclassNode.Viz<-function(PPclassOBJ,node.id,Rule,
       sel.data<-origdata[sel.id,]
       if(std){
          sel.data<-apply(sel.data,2,function(x) (x-mean(x))/sd(x))
-         ytitle<-"adjuste mean by each variable mean"
+         ytitle<-"adjusted mean by each variable mean"
       } else{
          ytitle<-"adjusted mean by overall mean"
       }
@@ -129,7 +134,7 @@ PPclassNode.Viz<-function(PPclassOBJ,node.id,Rule,
       }
       p3<-p3+facet_grid(LR~.)+
              ylab(ytitle)+xlab("variable ID")+
-             ggtitle("Mean of left and right node")+ylim(-y.max3,y.max3)+  
+             ggtitle("Mean of left and right nodes")+ylim(-y.max3,y.max3)+  
              geom_hline(yintercept=0)+
              theme(legend.position="none")
       if(image & p<=30){
@@ -140,7 +145,7 @@ PPclassNode.Viz<-function(PPclassOBJ,node.id,Rule,
              geom_tile()+
              scale_fill_gradient(low ="blue",high="yellow",limit=c(-1,1))+
              xlab("variables")+ylab("variables")+
-             ggtitle("correlation matrix")
+             ggtitle("correlation matrix")+theme(aspect.ratio=1)
          gridExtra::grid.arrange(p2,p1,p3,p4,nrow=2)
       } else{
          gridExtra::grid.arrange(p2,p3,p1,nrow=1)
