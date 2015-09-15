@@ -5,15 +5,15 @@
 #' @usage PPopt.Viz(PPoptOBJ)
 #' @param PPoptOBJ PPoptim object. result from LDAopt, PDAopt, and PPopt
 #' @references Lee, EK., Cook, D., Klinke, S., and Lumley, T.(2005) 
-#' Projection Pursuit for exploratory supervised classification, 
-#' Journal of Computational and Graphical statistics, 14(4):831-846.
+#' Projection Pursuit for Exploratory Supervised Classification, 
+#' Journal of Computational and Graphical Statistics, 14(4):831-846.
 #' @export
 #' @keywords tree
 #' @examples
 #' data(iris)
 #' PPopt.Viz(LDAopt(iris[,5],iris[,1:4],q=1))
 #' PPopt.Viz(LDAopt(iris[,5],iris[,1:4],q=2))
-#' @import ggplot2 grid gridExtra reshape2
+#' @import ggplot2 grid gridExtra 
 
 PPopt.Viz<-function(PPoptOBJ){
    proj.data<-PPoptOBJ$origdata%*%PPoptOBJ$projbest

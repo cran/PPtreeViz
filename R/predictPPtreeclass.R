@@ -22,7 +22,7 @@
 #' @param ... arguments to be passed to methods
 #' @aliases predict
 #' @references Lee, YD, Cook, D., Park JW, and Lee, EK(2013) 
-#' PPtree: Projection pursuit classification tree, 
+#' PPtree: Projection Pursuit Classification Tree, 
 #' Electronic Journal of Statistics, 7:1369-1386.
 #' @export
 #' @keywords tree
@@ -102,7 +102,6 @@ predict.PPtreeclass<-function(object,newdata=NULL,Rule=1,...) {
                         Tree.result$splitCutoff.node,1,Rule)
    test.class<-rep(0,n)
    IOindex<-rep(1,n)
-   rep<-1
    temp<-PP.Classification(Tree.result$Tree.Struct,temp$test.class.index,
                            IOindex,test.class,1,1)
    class.name<-names(table(Tree.result$origclass))
