@@ -1,4 +1,4 @@
-f18eab639d9feff5e0bf3c52216ca93c *DESCRIPTION
+44a1fec1c9f4b818241844962d77ca9b *DESCRIPTION
 26f619ac1a18ce48e364527a45d2f9bf *NAMESPACE
 e7e19bf5805dbc94dc30a917970638c7 *R/Huberplot.R
 6d1c4b1cf13a80d3bb684821e516692c *R/LDAopt.R
@@ -6,9 +6,9 @@ e7e19bf5805dbc94dc30a917970638c7 *R/Huberplot.R
 2a3ad05c7a747f8b52ad591c6faf4a19 *R/PPclassNodeViz.R
 8c7a11d35951548ee91b6b26da9475d8 *R/PPclassify.R
 49fece5abef8ff54a2cbfea5c574c3ad *R/PPoptViz.R
-a55513a8ebb4868d9ada300f9ce5245f *R/PPtreeClass.R
+259fa907623ee15303ed84f9813a73d7 *R/PPtreeClass.R
 041a8eab0710fd61b7b984262be2ad8c *R/RcppExp-add.R
-cc45626bc918a7ae4d784b77c9cee009 *R/RcppExports.R
+5c599e514fd043986fc39404b08711ae *R/RcppExports.R
 f410fa118776ee7e5be364b3823eae97 *R/aspartyPPtreeclass.R
 52a6af37879e39a4b66dd6f334f71c4b *R/plotPPtreeclass.R
 b65c687c121e5a62801c3d1948e270e8 *R/predictPPtreeclass.R
@@ -30,4 +30,4 @@ b472efc9e42bede55514a666d05d6415 *man/PPoptViz.Rd
 82dfc95f65c51c714f705e66db38c847 *man/predict.PPtreeclass.Rd
 a4557ea68bf167c97aa97a29949bcca9 *man/print.PPtreeclass.Rd
 c71fffa5a4391d138c94bcb29cd73fd1 *src/PPoptimize.cpp
-191e4e7bd26976e68a9a97956a9557b3 *src/RcppExports.cpp
+c84e6bd8eb40b75b6a2864ec64ddef44 *src/RcppExports.cpp
