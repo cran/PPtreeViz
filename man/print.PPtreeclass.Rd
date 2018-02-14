@@ -32,9 +32,8 @@ print(Tree.result,coef.print=TRUE,cutoff.print=TRUE)
 
 }
 \references{
-Lee, YD, Cook, D., Park JW, and Lee, EK(2013) 
-PPtree: Projection Pursuit Classification Tree, 
-Electronic Journal of Statistics, 7:1369-1386.
+Lee, EK(2017) 
+PPtreeViz: An R Package for Visualizing Projection Pursuit Classification 
+Trees, Journal of Statistical Software <doi:10.18637/jss.v083.i08>
 }
 \keyword{tree}
-

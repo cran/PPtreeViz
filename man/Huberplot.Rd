@@ -46,4 +46,3 @@ Journal of Computational and Graphical Statistics, 14(4):831-846.
 }
 \keyword{projection}
 \keyword{pursuit}
-

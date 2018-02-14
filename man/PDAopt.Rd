@@ -47,4 +47,3 @@ Statistics and Computing, 20:381-392.
 }
 \keyword{projection}
 \keyword{pursuit}
-

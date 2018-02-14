@@ -26,4 +26,3 @@ GINIindex1D(iris[,5],as.matrix(iris[,1,drop=FALSE]))
 }
 \keyword{projection}
 \keyword{pursuit}
-

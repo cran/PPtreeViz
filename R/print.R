@@ -7,9 +7,9 @@
 #' @param cutoff.print print cutoff values in each node if TRUE
 #' @param verbose print if TRUE, no output if FALSE
 #' @param ... arguments to be passed to methods
-#' @references Lee, YD, Cook, D., Park JW, and Lee, EK(2013) 
-#' PPtree: Projection Pursuit Classification Tree, 
-#' Electronic Journal of Statistics, 7:1369-1386.
+#' @references Lee, EK(2017) 
+#' PPtreeViz: An R Package for Visualizing Projection Pursuit Classification 
+#' Trees, Journal of Statistical Software <doi:10.18637/jss.v083.i08>
 #' @export
 #' @keywords tree
 #' @examples

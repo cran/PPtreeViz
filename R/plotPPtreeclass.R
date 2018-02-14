@@ -6,10 +6,12 @@
 #' @param x PPtreeclass object
 #' @param font.size font size of plot
 #' @param width.size size of eclipse in each node.
+#' @param main main title
+#' @param sub sub title
 #' @param ... arguments to be passed to methods
-#' @references Lee, YD, Cook, D., Park JW, and Lee, EK(2013) 
-#' PPtree: Projection Pursuit Classification Tree, 
-#' Electronic Journal of Statistics, 7:1369-1386.
+#' @references Lee, EK(2017) 
+#' PPtreeViz: An R Package for Visualizing Projection Pursuit Classification 
+#' Trees, Journal of Statistical Software <doi:10.18637/jss.v083.i08>
 #' @export
 #' @keywords tree
 #' @aliases plot
@@ -18,7 +20,7 @@
 #' Tree.result <- PPTreeclass(Species~., data = iris,"LDA")
 #' Tree.result
 #' plot(Tree.result)
-plot.PPtreeclass<-function(x,font.size=17,width.size=1,...){
+plot.PPtreeclass<-function(x,font.size=17,width.size=1,main="Projection Pursuit Classification Tree",sub=NULL,...){
    PPtreeobj<-x
    plotPPtree<-function(PPtreeobj,node.id,xlim,ylim){
       TS<-PPtreeobj$Tree.Struct
@@ -252,12 +254,15 @@ plot.PPtreeclass<-function(x,font.size=17,width.size=1,...){
    PPtree.title.V<-viewport(layout.pos.col=2,layout.pos.row=1)
    pushViewport(PPtree.title.V)
    grid.text(y=unit(1,"lines"),
-             "Projection Pursuit Classification Tree",
-             just="center")
+             paste("\n",main,sep=""),
+             just="center",gp=gpar(fontsize=font.size))
    upViewport()
    PPtree.Tree.V<-viewport(layout.pos.col=2,layout.pos.row=2, 
     			                 xscale=c(0,nx),yscale=c(0,ny+1))
    pushViewport(PPtree.Tree.V)
-   plotPPtree(PPtreeobj,1,c(0,nx),ylim=c(1,ny+1))   
+   plotPPtree(PPtreeobj,1,c(0,nx),ylim=c(1,ny+1)) 
+   grid.text(y=unit(1,"lines"),
+             sub,
+             just="center",gp=gpar(fontsize=font.size*0.7))
 }
  
