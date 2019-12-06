@@ -11,6 +11,7 @@
 #' Projection Pursuit for exploratory supervised classification, 
 #' Journal of Computational and Graphical statistics, 14(4):831-846.
 #' @export
+#' @import Rcpp
 #' @keywords projection pursuit
 #' @examples
 #' data(iris)

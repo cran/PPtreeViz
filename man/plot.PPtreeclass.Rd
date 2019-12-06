@@ -5,8 +5,14 @@
 \alias{plot}
 \title{PPtree plot}
 \usage{
-\method{plot}{PPtreeclass}(x, font.size = 17, width.size = 1,
-  main = "Projection Pursuit Classification Tree", sub = NULL, ...)
+\method{plot}{PPtreeclass}(
+  x,
+  font.size = 17,
+  width.size = 1,
+  main = "Projection Pursuit Classification Tree",
+  sub = NULL,
+  ...
+)
 }
 \arguments{
 \item{x}{PPtreeclass object}

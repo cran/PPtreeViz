@@ -4,8 +4,7 @@
 \alias{print.PPtreeclass}
 \title{Print PP.Tree.class result}
 \usage{
-\method{print}{PPtreeclass}(x, coef.print = FALSE, cutoff.print = FALSE,
-  verbose = TRUE, ...)
+\method{print}{PPtreeclass}(x, coef.print = FALSE, cutoff.print = FALSE, verbose = TRUE, ...)
 }
 \arguments{
 \item{x}{PPtreeclass object}
